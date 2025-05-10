@@ -1,16 +1,22 @@
 package ngrams
 
+import "fmt"
+
 func ExtractUniqueTrigrams(input string) map[string]int {
 	tg := ExtractTrigrams(input)
 	m := make(map[string]int)
 	for _, t := range tg {
 		m[t]++
 	}
+	fmt.Printf("number of unique trigrams: %d\n", len(m))
 	return m
 }
 
 func ExtractTrigrams(input string) []string {
-	return ExtractNgrams(input, 3)
+	fmt.Printf("number of runes: %d\n", len([]rune(input)))
+	tg := ExtractNgrams(input, 3)
+	fmt.Printf("number of trigrams: %d\n", len(tg))
+	return tg
 }
 
 func ExtractNgrams(input string, n int) []string {
