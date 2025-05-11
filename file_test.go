@@ -24,10 +24,10 @@ func TestExtractUniqueTrigramsFromFellowship(t *testing.T) {
 	uniqueTrigrams := ExtractUniqueTrigrams(string(content))
 
 	trigramEntries := make([]TrigramEntry, 0, len(uniqueTrigrams))
-	for trigram, frequency := range uniqueTrigrams {
+	for trigram, positions := range uniqueTrigrams {
 		trigramEntries = append(trigramEntries, TrigramEntry{
 			Trigram:   trigram,
-			Frequency: frequency,
+			Frequency: len(positions),
 		})
 	}
 
