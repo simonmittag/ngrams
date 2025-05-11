@@ -15,7 +15,8 @@ type TrigramEntry struct {
 }
 
 func TestExtractUniqueTrigramsFromFellowship(t *testing.T) {
-	filePath := filepath.Join("texts", "english", "fellowship_enc.txt")
+	filename := "fellowship_enc.txt"
+	filePath := filepath.Join("texts", "english", filename)
 	content, err := os.ReadFile(filePath)
 	if err != nil {
 		t.Fatalf("Failed to read fellowship text: %v", err)
@@ -51,7 +52,7 @@ func TestExtractUniqueTrigramsFromFellowship(t *testing.T) {
 	}
 	buf.WriteString("\n]")
 
-	outputFile := filepath.Join("output", "fellowship_trigrams.json")
+	outputFile := filepath.Join("output", filename+"_trigrams.json")
 
 	jsonData := buf.Bytes()
 
